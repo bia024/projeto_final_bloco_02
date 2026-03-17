@@ -18,7 +18,7 @@ Sistema de Comércio Eletrônico de Farmácia desenvolvido com **NestJS**, **Typ
 - `DELETE /categoria/:id` - Deletar categoria
 
 ### Etapa 03 - Produto + Relacionamento (Próximo)
-- Entity Produto: `id`, `nome`, `descricao`, `quantidade`, `preco`, `foto`
+- Entity Produto: `id`, `nome`, `tamanho`, `preco`, `foto`, `categoria` (relacionada)
 - Relacionamento `@ManyToOne` (Produto → Categoria)
 - Relacionamento `@OneToMany` (Categoria → Produtos)
 - CRUD completo com 6 métodos (incluindo `findByNome`)
