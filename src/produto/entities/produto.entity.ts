@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { Transform, TransformFnParams } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsPositive } from "class-validator";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -7,12 +8,14 @@ import { NumericTransformer } from "../../util/numerictransformer";
 @Entity({ name: "tb_produtos" })
 export class Produto {
 
-    @PrimaryGeneratedColumn()
+@PrimaryGeneratedColumn()
+    @ApiProperty() 
     id: number;
 
-    @Transform(({ value }: TransformFnParams) => value?.trim())
+@Transform(({ value }: TransformFnParams) => value?.trim())
     @IsNotEmpty()
     @Column({ length: 255, nullable: false })
+    @ApiProperty() 
     nome: string;
 
     @Transform(({ value }: TransformFnParams) => value?.trim())
