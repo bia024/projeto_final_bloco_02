@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
+import { CategoriaModule } from './categoria/categoria.module';
 
 @Module({
   imports: [
@@ -14,7 +15,10 @@ import { AppService } from './app.service';
       database: 'db_farmacia',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      autoLoadEntities: true,
+      timezone: '-03:00',
     }),
+    CategoriaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
