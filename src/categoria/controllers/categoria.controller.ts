@@ -18,21 +18,21 @@ export class CategoriaController {
     return this.categoriaService.findById(id);
   }
 
-  @Get('/tipo/:tipo')
-  @HttpCode(HttpStatus.OK)
-  findByTipo(@Param('tipo') tipo: string): Promise<Categoria[]> {
+ @Get('/tipo/:tipo')
+@HttpCode(HttpStatus.OK)
+findByTipo(@Param('tipo') tipo: string): Promise<Categoria[]> {
     return this.categoriaService.findByTipo(tipo);
-  }
+}
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() categoria: Categoria): Promise<Categoria> { 
+  create(@Body() categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.create(categoria);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
-  update(@Body() categoria: Categoria): Promise<Categoria> { 
+  update(@Body() categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.update(categoria);
   }
 
